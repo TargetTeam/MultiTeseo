@@ -26,8 +26,7 @@ public class MultiTeseoMain {
     //SimpleTeseoAgentProgramPerceptron p1=new SimpleTeseoAgentProgramPerceptron();
     //SimpleTeseoAgentProgramPerceptron p2=new SimpleTeseoAgentProgramPerceptron();
       AgentTarget p1= new AgentTarget();
-      p1.init();
-    TeseoSimple p2= new TeseoSimple();
+    //AgentTarget p2= new AgentTarget();
     //TheAgentLosRolos p2 = new TheAgentLosRolos(getLanguage());
     //MyTeseo p1 = new MyTeseo();
     //SimpleTeseoAgentProgram p1=new SimpleTeseoAgentProgram ();
@@ -37,19 +36,18 @@ public class MultiTeseoMain {
       
     //((MyTeseo)p1).setLanguage(getLanguage());
     p1.setLanguage(getLanguage());
-    p2.setLanguage(getLanguage());
+    //p2.setLanguage(getLanguage());
     LabyrinthDrawer.DRAW_AREA_SIZE = 600;
     LabyrinthDrawer.CELL_SIZE = 40;
     Labyrinth.DEFAULT_SIZE = 15;
     
-    Agent agent1 = new Agent(p1);    
-//    Agent agent2 = new Agent( p2 );
-    
+    Agent agent1 = new Agent(p1);  
+    //Agent agent2 = new Agent(p2);
     //Agent agent3 = new Agent(p3);
     Vector<Agent> agent = new Vector();
     agent.add(agent1);
-//    agent.add(agent2);
-//    Agent agent = new Agent( new RandomReflexTeseoAgentProgram( getLanguage() ) );
+    //agent.add(agent2);
+//  Agent agent = new Agent( new RandomReflexTeseoAgentProgram( getLanguage() ) );
     MultiAgentLabyrinthMainFrame frame = new MultiAgentLabyrinthMainFrame( agent, getLanguage() );
     frame.setVisible(true); 
   }

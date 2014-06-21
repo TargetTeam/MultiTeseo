@@ -16,7 +16,7 @@ public class Data {
     public static final int AGENT = 3;
     
     private int[] paths = {OPEN,OPEN,OPEN,OPEN};
-    private String key;
+//    private String key;
     
     public Data(){
         
@@ -32,9 +32,9 @@ public class Data {
         return paths[path];
     }
 
-    public String getKey() {
-        return key;
-    }
+//    public String getKey() {
+//        return key;
+//    }
     
     public void changePaths(int path, int state){
         paths[path] = state;

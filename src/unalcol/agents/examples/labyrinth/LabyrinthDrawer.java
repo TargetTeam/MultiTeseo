@@ -80,7 +80,7 @@ public class LabyrinthDrawer extends Drawer{
         int direction = ( (Integer) agent.getAttribute(env.D)).intValue();
         int x = ( (Integer) agent.getAttribute(env.X)).intValue();
         int y = ( (Integer) agent.getAttribute(env.Y)).intValue();
-        g.setColor( Color.red );
+        g.setColor( colors[i%colors.length] );
         int X = getCanvasValue( x );
         int Y = getCanvasValue( y );
         int EYE_SIZE = 6;

@@ -13,16 +13,16 @@ public class Node {
     private int x;
     private int y;
     private Object data;
-    private Node down, next, up, prev;
+//    private Node down, next, up, prev;
 
     public Node(int n_x, int n_y, Object data) {
         this.x = n_x;
         this.y = n_y;
         this.data = data;
-        down = this;
-        next = this;
-        up = this;
-        prev = this;
+//        down = this;
+//        next = this;
+//        up = this;
+//        prev = this;
     }
 
     public int getX() {
@@ -33,21 +33,21 @@ public class Node {
         return y;
     }
 
-    public void setDown(Node down) {
-        this.down = down;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
-    }
-
-    public Node getDown() {
-        return this.down;
-    }
-
-    public Node getNext() {
-        return this.next;
-    }
+//    public void setDown(Node down) {
+//        this.down = down;
+//    }
+//
+//    public void setNext(Node next) {
+//        this.next = next;
+//    }
+//
+//    public Node getDown() {
+//        return this.down;
+//    }
+//
+//    public Node getNext() {
+//        return this.next;
+//    }
 
     public int getCol() {
         return this.y;
@@ -65,20 +65,20 @@ public class Node {
         this.data = data;
     }
 
-    public Node getUp() {
-        return up;
-    }
-
-    public void setUp(Node up) {
-        this.up = up;
-    }
-
-    public Node getPrev() {
-        return prev;
-    }
-
-    public void setPrev(Node prev) {
-        this.prev = prev;
-    }
+//    public Node getUp() {
+//        return up;
+//    }
+//
+//    public void setUp(Node up) {
+//        this.up = up;
+//    }
+//
+//    public Node getPrev() {
+//        return prev;
+//    }
+//
+//    public void setPrev(Node prev) {
+//        this.prev = prev;
+//    }
     
 }
