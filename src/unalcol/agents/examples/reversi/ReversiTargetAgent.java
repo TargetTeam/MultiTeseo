@@ -37,8 +37,10 @@ public class ReversiTargetAgent implements AgentProgram {
                 player = TKind.white;
             }
         }
-        reversiBoard.printBoard();
+//        reversiBoard.printBoard();
         if (p.getAttribute(Reversi.TURN).equals(color)) {
+            reversiBoard.counter[0]=0;
+            reversiBoard.counter[1]=0;
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
                     String valor = (String) p.getAttribute(i + ":" + j);

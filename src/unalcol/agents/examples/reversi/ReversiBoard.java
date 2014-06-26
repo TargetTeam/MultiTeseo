@@ -76,10 +76,17 @@ public class ReversiBoard {
                 board[i][j] = TKind.nil;
             }
         }
-        board[3][4] = TKind.black;
-        board[4][3] = TKind.black;
-        board[3][3] = TKind.white;
-        board[4][4] = TKind.white;
+        if(size%2==0){            
+            board[(size/2)-1][size/2] = TKind.black;
+            board[size/2][(size/2)-1] = TKind.black;
+            board[(size/2)-1][(size/2)-1] = TKind.white;
+            board[size/2][size/2] = TKind.white;
+        }else{
+            board[((size-1)/2)-1][(size-1)/2] = TKind.black;
+            board[(size-1)/2][((size-1)/2)-1] = TKind.black;
+            board[((size-1)/2)-1][((size-1)/2)-1] = TKind.white;
+            board[(size-1)/2][(size-1)/2] = TKind.white;
+        }
         counter[0] = 2;
         counter[1] = 2;
         PassCounter = false;
@@ -91,7 +98,7 @@ public class ReversiBoard {
             for (int j = 0; j < size; j++) {
                 System.out.print(board[i][j] + ",");
             }
-            System.out.println((i == 7 ? "]" : ""));
+            System.out.println((i == size-1 ? "]" : ""));
         }
     }
 
@@ -197,9 +204,9 @@ public class ReversiBoard {
             }
         }
         for (int i = 0; i < size; i++) {
-            if (board[i][7] == opponent) {
+            if (board[i][size-1] == opponent) {
                 tstrat++;
-            } else if (board[i][7] == me) {
+            } else if (board[i][size-1] == me) {
                 tstrat--;
             }
         }
@@ -211,9 +218,9 @@ public class ReversiBoard {
             }
         }
         for (int i = 0; i < size; i++) {
-            if (board[7][i] == opponent) {
+            if (board[size-1][i] == opponent) {
                 tstrat++;
-            } else if (board[7][i] == me) {
+            } else if (board[size-1][i] == me) {
                 tstrat--;
             }
         }
@@ -245,6 +252,12 @@ public class ReversiBoard {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if ((board[i][j] == TKind.nil) && (checkBoard(new Move(i, j), player) != 0)) {
+                    if((i==0 && j==0)||(i==size-1 && j==size-1)||(i==0 && j==size-1)||(i==size-1 && j==0)){
+                        move.i = i;
+                        move.j = j;
+                        found = true;
+                        return found;
+                    }
                     if (player == TKind.black) {
                         res = FindMax(llevel - 1, TKind.white, player);
                     } else {
@@ -419,7 +432,7 @@ public class ReversiBoard {
             found = true;
         } else if (min == res.score) { // RANDOM MOVE GENERATOR
             for (int i = 0; i < size && !found ; i++) {
-                for (int j = 0; j < 8 && !found; j++) {
+                for (int j = 0; j < size && !found; j++) {
                     if ((board[i][j] == TKind.nil) && (checkBoard(new Move(i, j), player) != 0)) {
                         move.i = i;
                         move.j = j;
